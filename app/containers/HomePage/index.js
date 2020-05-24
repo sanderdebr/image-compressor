@@ -20,6 +20,7 @@ import {
   makeSelectError,
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
+import Button from 'components/Button';
 import ReposList from 'components/ReposList';
 import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
@@ -63,7 +64,7 @@ export function HomePage({
         <title>Home Page</title>
         <meta
           name="description"
-          content="A React.js Boilerplate application homepage"
+          content="Image Compressor Application - Home Page"
         />
       </Helmet>
       <div>
@@ -74,6 +75,9 @@ export function HomePage({
           <p>
             <FormattedMessage {...messages.startProjectMessage} />
           </p>
+          <Button handleRoute>
+            <FormattedMessage {...messages.compressImgBtn} />
+          </Button>
         </CenteredSection>
         <Section>
           <H2>

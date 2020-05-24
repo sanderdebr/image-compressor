@@ -6,7 +6,7 @@ import LocaleToggle from 'containers/LocaleToggle';
 import Wrapper from './Wrapper';
 import messages from './messages';
 
-function Footer() {
+export default function() {
   return (
     <Wrapper>
       <section>
@@ -26,5 +26,3 @@ function Footer() {
     </Wrapper>
   );
 }
-
-export default Footer;

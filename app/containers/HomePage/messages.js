@@ -10,12 +10,12 @@ export const scope = 'boilerplate.containers.HomePage';
 export default defineMessages({
   startProjectHeader: {
     id: `${scope}.start_project.header`,
-    defaultMessage: 'Start your next react project in seconds',
+    defaultMessage: 'Compress JPEG or PNG images in seconds',
   },
   startProjectMessage: {
     id: `${scope}.start_project.message`,
     defaultMessage:
-      'A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices',
+      'Three simple steps upload your image, compress your image and download your compresses image',
   },
   trymeHeader: {
     id: `${scope}.tryme.header`,
@@ -28,5 +28,9 @@ export default defineMessages({
   trymeAtPrefix: {
     id: `${scope}.tryme.atPrefix`,
     defaultMessage: '@',
+  },
+  compressImgBtn: {
+    id: `${scope}.compress_img.btn`,
+    defaultMessage: 'Compress img',
   },
 });

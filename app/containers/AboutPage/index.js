@@ -1,7 +1,7 @@
 /*
- * FeaturePage
+ * AboutPage
  *
- * List all the features
+ * Explaining image compressor
  */
 import React from 'react';
 import { Helmet } from 'react-helmet';
@@ -13,14 +13,14 @@ import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
 
-export default function FeaturePage() {
+export default function AboutPage() {
   return (
     <div>
       <Helmet>
         <title>Feature Page</title>
         <meta
           name="description"
-          content="Feature page of React.js Boilerplate application"
+          content="Explaning Image Compressor application"
         />
       </Helmet>
       <H1>
