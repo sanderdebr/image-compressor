@@ -1,6 +1,6 @@
-# Image compressor using react-boilerplate and browser-image-compression
+# Image compressor
 
-Using:
+### Simple using react-boilerplate and browser-image-compression
 
 - react-boilerplate
 - browser-image-compression
