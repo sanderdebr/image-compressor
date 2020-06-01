@@ -17,7 +17,7 @@ export default function AboutPage() {
   return (
     <div>
       <Helmet>
-        <title>Feature Page</title>
+        <title>About Page</title>
         <meta
           name="description"
           content="Explaning Image Compressor application"
