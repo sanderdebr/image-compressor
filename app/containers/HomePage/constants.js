@@ -9,4 +9,8 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const CHANGE_USERNAME = 'boilerplate/Home/CHANGE_USERNAME';
+export const COMPRESS_IMAGE = 'image-compressor/Home/COMPRESS_IMAGE';
+export const COMPRESS_IMAGE_SUCCESS =
+  'image-compressor/Home/COMPRESS_IMAGE_SUCCESS';
+export const COMPRESS_IMAGE_ERROR =
+  'image-compressor/Home/COMPRESS_IMAGE_ERROR';

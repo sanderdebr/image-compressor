@@ -24,7 +24,11 @@ function Button(props) {
   // If the Button has a handleRoute prop, we want to render a button
   if (props.handleRoute) {
     button = (
-      <StyledButton onClick={props.handleRoute}>
+      <StyledButton
+        type={props.type}
+        shape={props.shape}
+        onClick={props.handleRoute}
+      >
         {Children.toArray(props.children)}
       </StyledButton>
     );
@@ -38,6 +42,8 @@ Button.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired,
+  type: PropTypes.string,
+  shape: PropTypes.string,
 };
 
 export default Button;

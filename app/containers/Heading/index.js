@@ -14,6 +14,7 @@ import messages from './messages';
 export function Heading({ location }) {
   const { Header } = Layout;
   const { pathname } = location;
+  console.log('path: ', pathname);
 
   return (
     <Header>
@@ -23,7 +24,7 @@ export function Heading({ location }) {
             <FormattedMessage {...messages.home} />
           </Link>
         </Menu.Item>
-        <Menu.Item key="about">
+        <Menu.Item key="/about">
           <Link to="/about">
             <FormattedMessage {...messages.features} />
           </Link>

@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_USERNAME } from './constants';
+import { COMPRESS_IMAGE } from './constants';
 
 /**
  * Changes the input field of the form
@@ -24,9 +24,8 @@ import { CHANGE_USERNAME } from './constants';
  *
  * @return {object} An action object with a type of CHANGE_USERNAME
  */
-export function changeUsername(username) {
+export function handleImageUpload() {
   return {
-    type: CHANGE_USERNAME,
-    username,
+    type: COMPRESS_IMAGE,
   };
 }
