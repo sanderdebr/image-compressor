@@ -18,7 +18,16 @@ import {
 export const initialState = {
   loading: false,
   error: false,
+  fileOptions: {
+    maxSizeMB: 1,
+    maxWidthOrHeight: 1920,
+    useWebWorker: true,
+  },
+  file: false,
   compressedLink: false,
+  output: {
+    size: false,
+  },
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -28,14 +37,13 @@ const appReducer = (state = initialState, action) =>
       case COMPRESS_IMAGE:
         draft.loading = true;
         draft.error = false;
-        draft.compressedLink = false;
+        draft.file = action.file;
         break;
-
       case COMPRESS_IMAGE_SUCCESS:
         draft.compressedLink = action.compressedLink;
+        draft.output.size = action.output.size;
         draft.loading = false;
         break;
-
       case COMPRESS_IMAGE_ERROR:
         draft.error = action.error;
         draft.loading = false;

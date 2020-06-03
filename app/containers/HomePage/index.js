@@ -18,7 +18,12 @@ import { useInjectSaga } from 'utils/injectSaga';
 import reducer from 'containers/App/reducer';
 import saga from 'containers/App/saga';
 
-import { makeSelectLoading, makeSelectError } from 'containers/App/selectors';
+import {
+  makeSelectLoading,
+  makeSelectError,
+  makeSelectLink,
+  makeSelectOutput,
+} from 'containers/App/selectors';
 import H2 from 'components/H2';
 import Button from 'components/Button';
 import Input from 'components/Input';
@@ -27,10 +32,19 @@ import { compressImage } from '../App/actions';
 
 const key = 'home';
 
-export function HomePage({ onHandleImageUpload }) {
+export function HomePage({
+  loading,
+  error,
+  compressedLink,
+  output,
+  onHandleImageUpload,
+}) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
+  if (error) console.log(error);
+
+  console.log(output);
   return (
     <article>
       <Helmet>
@@ -48,6 +62,13 @@ export function HomePage({ onHandleImageUpload }) {
           <FormattedMessage {...messages.startProjectMessage} />
         </p>
         <Input type="file" accept="image/*" onChange={onHandleImageUpload} />
+        {loading && <p>Loading...</p>}
+        {compressedLink && (
+          <>
+            <p>Size: {output.size} MB</p>
+            <img alt="output" src={compressedLink} />
+          </>
+        )}
         <Button type="primary" shape="round">
           <FormattedMessage {...messages.compressImgBtn} />
         </Button>
@@ -59,19 +80,24 @@ export function HomePage({ onHandleImageUpload }) {
 HomePage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  compressedLink: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  output: PropTypes.object,
   onHandleImageUpload: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoading(),
   error: makeSelectError(),
+  compressedLink: makeSelectLink(),
+  output: makeSelectOutput(),
 });
 
 export function mapDispatchToProps(dispatch) {
   return {
     onHandleImageUpload: event => {
-      if (event.target.files[0] !== undefined) {
-        dispatch(compressImage(event.target.files[0]));
+      const file = event.target.files[0];
+      if (file) {
+        dispatch(compressImage(file));
       }
     },
   };

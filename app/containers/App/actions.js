@@ -26,9 +26,10 @@ import {
  *
  * @return {object} An action object with a type of LOAD_REPOS
  */
-export function compressImage() {
+export function compressImage(file) {
   return {
     type: COMPRESS_IMAGE,
+    file,
   };
 }
 
@@ -40,10 +41,13 @@ export function compressImage() {
  *
  * @return {object}      An action object with a type of COMPRESS_IMAGE_SUCCESS passing the repos
  */
-export function imageCompressed(compressedLink) {
+export function imageCompressed(compressedLink, size) {
   return {
     type: COMPRESS_IMAGE_SUCCESS,
     compressedLink,
+    output: {
+      size,
+    },
   };
 }
 

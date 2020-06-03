@@ -39,6 +39,24 @@ const makeSelectFile = () =>
     globalState => globalState.file,
   );
 
+const makeSelectFileOptions = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.fileOptions,
+  );
+
+const makeSelectLink = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.compressedLink,
+  );
+
+const makeSelectOutput = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.output,
+  );
+
 export {
   selectGlobal,
   makeSelectCurrentUser,
@@ -46,4 +64,7 @@ export {
   makeSelectError,
   makeSelectLocation,
   makeSelectFile,
+  makeSelectFileOptions,
+  makeSelectLink,
+  makeSelectOutput,
 };
